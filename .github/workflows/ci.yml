@@ -15,6 +15,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - run: pip install -e ".[dev]"
+      - run: pip install -e ".[dev,tiktoken]"
       - run: pytest -q
       - run: ruff check src tests tools

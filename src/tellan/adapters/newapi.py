@@ -115,6 +115,10 @@ def _norm_ts(value: Any) -> str | None:
         try:
             seconds = float(text)
         except ValueError:
+            # datetime.fromisoformat accepted the UTC designator only from
+            # Python 3.11; normalize it for the supported Python 3.10 floor.
+            if text.endswith(("Z", "z")):
+                text = text[:-1] + "+00:00"
             dt = datetime.fromisoformat(text)
             if dt.tzinfo is None:
                 dt = dt.replace(tzinfo=timezone.utc)
