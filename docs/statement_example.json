@@ -1,0 +1,194 @@
+{
+  "tellan_version": "0.1.0rc1",
+  "ledger": {
+    "n_records": 8,
+    "file_sha256": "f4cf35c68c05ddc2043a1fa88ca07afddd78efa59f450391ba7dd331db75f1e1",
+    "chain_head": "b490462d3a49935cabc6fcf233a03b8c774b2ee1e83f4e5fb17e5edb3b850657",
+    "first_ts": "2026-09-20T01:15:00+00:00",
+    "last_ts": "2026-09-20T08:15:00+00:00"
+  },
+  "parameters": {
+    "strategy": "heuristic",
+    "tolerance_lo_factor": 0.9,
+    "tolerance_hi_factor": 1.25,
+    "price_table": {
+      "models": 38,
+      "as_of": "2025-10-01",
+      "source_note": "内置价格快照。所有价格为快照估值，发布前需人工核对，未联网逐条验证。价格随时可能变化，仅用于量级对账，不作为结算依据。"
+    }
+  },
+  "summary": {
+    "status_counts": {
+      "OK": 6,
+      "SUSPECT_INFLATED": 2
+    },
+    "totals_reported": {
+      "prompt_tokens": 899,
+      "completion_tokens": 1647,
+      "reasoning_tokens": 300,
+      "cached_tokens": 0
+    },
+    "totals_estimated": {
+      "input": [
+        320,
+        1034
+      ],
+      "output": [
+        57,
+        496
+      ]
+    },
+    "cost_reported_total": 0.003497,
+    "cost_estimated_total_range": [
+      0.000225,
+      0.001496
+    ],
+    "anomaly_counts": {
+      "OPAQUE_REASONING": 1,
+      "TOKEN_INFLATION": 2,
+      "EMPTY_CONTENT_BILLED": 1,
+      "PRICE_MISSING": 2
+    },
+    "top_deviations": [
+      {
+        "seq": 5,
+        "model": "some-relay-model",
+        "status": "SUSPECT_INFLATED",
+        "deviation_pct": 701.5
+      },
+      {
+        "seq": 4,
+        "model": "gemini-2.5-flash",
+        "status": "SUSPECT_INFLATED",
+        "deviation_pct": 554.0
+      },
+      {
+        "seq": 6,
+        "model": "mystery-alpha-latest",
+        "status": "OK",
+        "deviation_pct": -34.6
+      },
+      {
+        "seq": 1,
+        "model": "deepseek-chat",
+        "status": "OK",
+        "deviation_pct": -2.9
+      },
+      {
+        "seq": 2,
+        "model": "deepseek-chat",
+        "status": "OK",
+        "deviation_pct": -2.9
+      },
+      {
+        "seq": 7,
+        "model": "qwen-plus",
+        "status": "OK",
+        "deviation_pct": -2.7
+      },
+      {
+        "seq": 8,
+        "model": "qwen-plus",
+        "status": "OK",
+        "deviation_pct": -2.7
+      },
+      {
+        "seq": 3,
+        "model": "glm-4.6",
+        "status": "OK",
+        "deviation_pct": 0.0
+      }
+    ]
+  },
+  "disputed": [
+    {
+      "seq": 4,
+      "model": "gemini-2.5-flash",
+      "request_id": "demo-inflate",
+      "record_hash": "4512de1960512af285a063012ed1171ef5f474a37e31361d6c4d15039cd194cf",
+      "status": "SUSPECT_INFLATED",
+      "deviation_pct": 554.0,
+      "reported": {
+        "completion_tokens": 1200,
+        "completion_tokens_details": {
+          "reasoning_tokens": 300
+        },
+        "prompt_tokens": 180
+      },
+      "estimate": {
+        "input_lo": 24,
+        "input_hi": 80,
+        "output_lo": 4,
+        "output_hi": 314,
+        "strategy": "heuristic",
+        "confidence": "coarse",
+        "notes": [
+          "族 gemini，权重 0.85 tok/CJK字",
+          "输出盒并入厂商自报 reasoning_tokens=300（不可见部分，无法复算）"
+        ]
+      },
+      "anomalies": [
+        {
+          "code": "OPAQUE_REASONING",
+          "severity": "info",
+          "detail": "reasoning_tokens=300，该部分消耗不可见也不可复算"
+        },
+        {
+          "code": "TOKEN_INFLATION",
+          "severity": "error",
+          "detail": "输出报数 1200 > 包围盒上沿 314×1.5"
+        }
+      ]
+    },
+    {
+      "seq": 5,
+      "model": "some-relay-model",
+      "request_id": "demo-null",
+      "record_hash": "055391b34a17dad725818818abe1d6bf97de95de5ca54f60761dd4699cdf3be2",
+      "status": "SUSPECT_INFLATED",
+      "deviation_pct": 701.5,
+      "reported": {
+        "completion_tokens": 345,
+        "prompt_tokens": 180
+      },
+      "estimate": {
+        "input_lo": 29,
+        "input_hi": 93,
+        "output_lo": 2,
+        "output_hi": 7,
+        "strategy": "heuristic",
+        "confidence": "coarse",
+        "notes": [
+          "未知模型族 'some-relay-model'，使用中性权重 1.0，包围盒加宽",
+          "输出侧同用中性权重"
+        ]
+      },
+      "anomalies": [
+        {
+          "code": "EMPTY_CONTENT_BILLED",
+          "severity": "error",
+          "detail": "content 为空/None 但 completion_tokens=345（无 reasoning 说明），疑似 opaque 计费"
+        },
+        {
+          "code": "TOKEN_INFLATION",
+          "severity": "error",
+          "detail": "输出报数 345 > 包围盒上沿 7×1.5"
+        },
+        {
+          "code": "PRICE_MISSING",
+          "severity": "warning",
+          "detail": "价格表无 'some-relay-model'，费用对账跳过"
+        }
+      ]
+    }
+  ],
+  "statement_sha256": "84459088d22bb1cfc2a6fdc120cd98905d156f98fcf02231a33ad3f28f983fe0",
+  "reproduction": [
+    "pip install tellan==0.1.0rc1   # 与声明同版本（或同一 commit 源码安装）",
+    "python -c \"import hashlib,sys;print(hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest())\" docs/demo_ledger.jsonl   # 应等于 ledger.file_sha256",
+    "tellan verify docs/demo_ledger.jsonl",
+    "tellan audit docs/demo_ledger.jsonl --strategy heuristic --tolerance 0.25",
+    "tellan statement docs/demo_ledger.jsonl --strategy heuristic --tolerance 0.25 -o statement.md --json-out statement.json",
+    "# 重跑得到的 statement_sha256 应与本声明一致"
+  ]
+}

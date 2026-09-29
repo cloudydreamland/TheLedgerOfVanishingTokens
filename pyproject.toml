@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tellan"
+version = "0.1.0rc1"
+description = "The Ledger of Vanishing Tokens (Tellan) | LLM usage reconciliation and audit"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "tellan contributors" }]
+keywords = ["llm", "billing", "audit", "tokens", "对账", "计量", "成本", "proxy", "reconciliation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: System :: Accounting",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.optional-dependencies]
+tiktoken = ["tiktoken>=0.8"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.scripts]
+tellan = "tellan.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/cloudydreamland/TheLedgerOfVanishingTokens"
+Repository = "https://github.com/cloudydreamland/TheLedgerOfVanishingTokens"
+Issues = "https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/issues"
+Changelog = "https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/blob/main/CHANGELOG.md"
+Security = "https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/security/policy"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+tellan = ["py.typed", "prices.json"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+ignore = [
+    "RUF001", # 中文字符串里的全角标点是内容，不是混淆
+    "RUF002",
+    "RUF003",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
