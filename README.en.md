@@ -8,6 +8,8 @@
 [![Python](https://img.shields.io/pypi/pyversions/tellan)](https://pypi.org/project/tellan/)
 [![CI](https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/actions/workflows/ci.yml/badge.svg)](https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
+![tellan demo: offline bench over the reconciliation pipeline (real output)](docs/assets/demo.svg)
 ## Quick start
 
 ```bash

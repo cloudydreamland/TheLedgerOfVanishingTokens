@@ -7,6 +7,8 @@
 [![Python](https://img.shields.io/pypi/pyversions/tellan)](https://pypi.org/project/tellan/)
 [![CI](https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/actions/workflows/ci.yml/badge.svg)](https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
+![tellan 演示：离线基准对账检测管线（真实运行输出）](docs/assets/demo.svg)
 **LLM API 用量对账工具。把服务端用量、可行的本地估算和价格快照并列，帮助你定位值得复查的差异。**
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](pyproject.toml)
