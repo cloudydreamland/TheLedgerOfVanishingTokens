@@ -4,10 +4,10 @@
 
 **Tellan** records and audits LLM API usage. It compares provider-reported token counts with local estimates, checks ledger integrity, and produces a reproducible statement for investigating discrepancies.
 
+[![PyPI](https://img.shields.io/pypi/v/tellan)](https://pypi.org/project/tellan/)
+[![Python](https://img.shields.io/pypi/pyversions/tellan)](https://pypi.org/project/tellan/)
 [![CI](https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/actions/workflows/ci.yml/badge.svg)](https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/actions/workflows/ci.yml)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](pyproject.toml)
-[![MIT license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 ## Quick start
 
 ```bash

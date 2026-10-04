@@ -3,8 +3,10 @@
 简体中文 · [English](README.en.md)
 
 > 展示名 **The Ledger of Vanishing Tokens** 描绘逐渐消隐的 token 与它们留下的账目；Tellan 是该项目的短名。
-[![CI](https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/actions/workflows/ci.yml/badge.svg)](.github/workflows/ci.yml)
-
+[![PyPI](https://img.shields.io/pypi/v/tellan)](https://pypi.org/project/tellan/)
+[![Python](https://img.shields.io/pypi/pyversions/tellan)](https://pypi.org/project/tellan/)
+[![CI](https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/actions/workflows/ci.yml/badge.svg)](https://github.com/cloudydreamland/TheLedgerOfVanishingTokens/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 **LLM API 用量对账工具。把服务端用量、可行的本地估算和价格快照并列，帮助你定位值得复查的差异。**
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](pyproject.toml)

@@ -6,7 +6,7 @@
 
 # 版本号必须先于子模块 import 定义：statement 等子模块在包初始化期间
 # `from . import __version__` 取的就是这个属性。
-__version__ = "0.1.0rc1"
+__version__ = "0.1.0"
 
 from .ledger import GENESIS_PREV_HASH, Ledger, canonical_json, compute_hash
 from .prices import DEFAULT_TABLE, PriceEntry, PriceTable, cost, lookup
