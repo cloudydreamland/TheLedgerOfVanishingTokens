@@ -51,14 +51,17 @@ LLM 使用记录会分散在代理、客户端日志和账单导出中；不同 
 
 ## 快速开始 / Quickstart
 
-> 当前尚未发布到 PyPI；下方给出从 GitHub 获取并本地安装的命令。
+```bash
+python -m pip install tellan
+python -m pip install "tellan[tiktoken]"  # 可选增强，按需安装
+```
+
+从源码安装（开发或最新版）：
 
 ```bash
 git clone https://github.com/cloudydreamland/TheLedgerOfVanishingTokens.git
 cd TheLedgerOfVanishingTokens
 python -m pip install .
-# PyPI 首发后：python -m pip install tellan
-python -m pip install ".[tiktoken]"
 ```
 
 ### 方式一：代理模式（新流量）
