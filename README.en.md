@@ -10,19 +10,16 @@
 
 ## Quick start
 
-> This package is not on PyPI yet. Install the current GitHub version with:
+```bash
+python -m pip install tellan
+```
 
+Or install from source (latest development version):
 
 ```bash
 git clone https://github.com/cloudydreamland/TheLedgerOfVanishingTokens.git
 cd TheLedgerOfVanishingTokens
 python -m pip install .
-
-# Audit a ledger or supported provider export.
-tellan audit usage.ledger
-
-# Create a shareable Markdown and JSON statement.
-tellan statement usage.ledger -o statement.md --json-out statement.json
 ```
 
 To capture new OpenAI-compatible traffic through the local proxy:
